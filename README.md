@@ -23,4 +23,7 @@ nibegw -h
     
 run example:
 
-  ./nibegw -v -d /dev/ttyUSB0 -a 192.168.1.10
+  ./nibegw -v -d /dev/ttyUSB0 -a 127.0.0.1
+
+
+Import the flow from the file nodered.flows into your existing nodered.
