@@ -6,8 +6,6 @@ Build the nibegw.c script with the command "gcc -std=gnu99 -o nibegw nibegw.c"
 
 nibegw -h
 
-./nibegw usage:
-
     -h                 Print help
     -v                 Print debug information
     -d <device name>   Serial port device (default: /dev/ttyS0)
