@@ -13,7 +13,7 @@
 2. Clone this repository "git clone https://github.com/bebben88/nibe2mqtt"
 
 # Install Node-RED
-bash <(curl -sL https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/update-nodejs-and-nodered)
+```bash <(curl -sL https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/update-nodejs-and-nodered)```
 
 open folder "cd nibe2mqtt"
 Build the nibegw.c script with the command "gcc -std=gnu99 -o nibegw nibegw.c"
