@@ -14,7 +14,13 @@
 
 # Install Node-RED
 ```bash <(curl -sL https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/update-nodejs-and-nodered)```
-
+Make it autostart on boot
+```sudo systemctl enable nodered.service```
+Start Node-RED
+```sudo systemctl start nodered.service```
+Import the flow from the file nodered.flows
+Now you can Deploy.
+# Start NibeGW script
 open folder "cd nibe2mqtt"
 Build the nibegw.c script with the command "gcc -std=gnu99 -o nibegw nibegw.c"
 
@@ -38,6 +44,3 @@ Build the nibegw.c script with the command "gcc -std=gnu99 -o nibegw nibegw.c"
 run example:
 
   ./nibegw -v -d /dev/serial0
-
-
-Import the flow from the file nodered.flows into your existing nodered.
