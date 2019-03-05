@@ -50,3 +50,10 @@ Build the nibegw.c script with the command "gcc -std=gnu99 -o nibegw nibegw.c"
 run example:
 
   ./nibegw -v -d /dev/serial0
+  
+Verify that the packets are flowing in and Node-RED is sending on Outgoing messages.
+To make nibegw autostart, follow these steps.
+
+1. Move the autostartscript.
+```
+
