@@ -1,10 +1,19 @@
 # nibe2mqtt
 
-Clone the repository.
+1. Enter sudo raspi-config in a terminal window
+2. Select Interfacing Options
+3. Navigate to and select Serial
+4. Choose No (Login shell over serial)
+5. Choose Yes (Enable serial hardware)
+6. Choose OK
+6. Choose Finish
 
+Clone the repository with git
+git clone https://github.com/bebben88/nibe2mqtt
+open folder "cd nibe2mqtt"
 Build the nibegw.c script with the command "gcc -std=gnu99 -o nibegw nibegw.c"
 
-nibegw -h
+./nibegw -h
 
     -h                 Print help
     -v                 Print debug information
@@ -23,7 +32,7 @@ nibegw -h
     
 run example:
 
-  ./nibegw -v -d /dev/ttyUSB0 -a 127.0.0.1
+  ./nibegw -v -d /dev/serial0
 
 
 Import the flow from the file nodered.flows into your existing nodered.
