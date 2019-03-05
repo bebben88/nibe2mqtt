@@ -1,0 +1,312 @@
+[
+    {
+        "id": "f1840b51.6b6c18",
+        "type": "subflow",
+        "name": "Nätverksfel = Omstart",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 158,
+                "y": 175,
+                "wires": [
+                    {
+                        "id": "90126a20.52fb08"
+                    }
+                ]
+            }
+        ],
+        "out": []
+    },
+    {
+        "id": "44f62dc.a3ea5d4",
+        "type": "trigger",
+        "z": "f1840b51.6b6c18",
+        "op1": "",
+        "op2": "true",
+        "op1type": "nul",
+        "op2type": "bool",
+        "duration": "300",
+        "extend": false,
+        "units": "s",
+        "reset": "reset",
+        "bytopic": "all",
+        "name": "",
+        "x": 672,
+        "y": 175,
+        "wires": [
+            [
+                "f1f0c728.657c18"
+            ]
+        ]
+    },
+    {
+        "id": "90126a20.52fb08",
+        "type": "switch",
+        "z": "f1840b51.6b6c18",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 288,
+        "y": 175,
+        "wires": [
+            [
+                "44f62dc.a3ea5d4"
+            ],
+            [
+                "a2d6e66d.747258"
+            ]
+        ]
+    },
+    {
+        "id": "a2d6e66d.747258",
+        "type": "change",
+        "z": "f1840b51.6b6c18",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "reset",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 465,
+        "y": 175,
+        "wires": [
+            [
+                "44f62dc.a3ea5d4"
+            ]
+        ]
+    },
+    {
+        "id": "c70da5eb.cb53f8",
+        "type": "exec",
+        "z": "f1840b51.6b6c18",
+        "command": "sudo reboot",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 1120,
+        "y": 175,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f1f0c728.657c18",
+        "type": "switch",
+        "z": "f1840b51.6b6c18",
+        "name": "rebootOnNetworkLoss",
+        "property": "nibe_config.rebootOnNetworkLoss",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 884,
+        "y": 175,
+        "wires": [
+            [
+                "c70da5eb.cb53f8"
+            ]
+        ]
+    },
+    {
+        "id": "a8b30fe8.8aa27",
+        "type": "exec",
+        "z": "76cff903.f62f88",
+        "command": "sudo mount -o remount,ro /",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 400,
+        "y": 680,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ee2d29ec.0b75b8",
+        "type": "exec",
+        "z": "76cff903.f62f88",
+        "command": "sudo mount -o remount,rw /",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 400,
+        "y": 733.5,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "51a4862f.236228",
+        "type": "inject",
+        "z": "76cff903.f62f88",
+        "name": "Read only",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 130,
+        "y": 680.5,
+        "wires": [
+            [
+                "a8b30fe8.8aa27"
+            ]
+        ]
+    },
+    {
+        "id": "600537bf.b98a18",
+        "type": "inject",
+        "z": "76cff903.f62f88",
+        "name": "Write mode",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 138,
+        "y": 733.5,
+        "wires": [
+            [
+                "ee2d29ec.0b75b8"
+            ]
+        ]
+    },
+    {
+        "id": "a8389d33.8a303",
+        "type": "ping",
+        "z": "76cff903.f62f88",
+        "name": "",
+        "host": "192.168.0.1",
+        "timer": "30",
+        "x": 119,
+        "y": 582,
+        "wires": [
+            [
+                "4bb74820.bafa68"
+            ]
+        ]
+    },
+    {
+        "id": "bf7b80ee.cd212",
+        "type": "comment",
+        "z": "76cff903.f62f88",
+        "name": "Om det inte går att pinga nedanstående IP så startar NibePi om sig efter 5 min",
+        "info": "",
+        "x": 319,
+        "y": 533,
+        "wires": []
+    },
+    {
+        "id": "535b4888.dd6268",
+        "type": "inject",
+        "z": "76cff903.f62f88",
+        "name": "Starta om raspberryn",
+        "topic": "",
+        "payload": "sudo reboot",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 800,
+        "y": 533,
+        "wires": [
+            [
+                "55cbdf74.80f64"
+            ]
+        ]
+    },
+    {
+        "id": "55cbdf74.80f64",
+        "type": "exec",
+        "z": "76cff903.f62f88",
+        "command": "",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 1021.9315643310547,
+        "y": 545.6786117553711,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "9c05b935.8e5568",
+        "type": "inject",
+        "z": "76cff903.f62f88",
+        "name": "Stäng av raspberryn",
+        "topic": "",
+        "payload": "sudo shutdown now",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 788.9315643310547,
+        "y": 573.6786117553711,
+        "wires": [
+            [
+                "55cbdf74.80f64"
+            ]
+        ]
+    },
+    {
+        "id": "4bb74820.bafa68",
+        "type": "subflow:f1840b51.6b6c18",
+        "z": "76cff903.f62f88",
+        "name": "Nätverksfel = Omstart",
+        "x": 352,
+        "y": 582,
+        "wires": []
+    }
+]
