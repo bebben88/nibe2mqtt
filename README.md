@@ -58,13 +58,13 @@ To make nibegw autostart, follow these steps.
 
 1. Move the autostartscript.
 ```
-cp /home/pi/nibe2mqtt/nibegw.service /lib/systemd/system/nibegw.service
+sudo cp /home/pi/nibe2mqtt/nibegw.service /lib/systemd/system/nibegw.service
 ```
 2. Make it executable
 ```
 sudo chmod 644 /lib/systemd/system/nibegw.service
 ```
-3: Reload systemctl daemon
+3. Reload systemctl daemon
 ```
 sudo systemctl daemon-reload
 ```
