@@ -1,0 +1,11 @@
+
+ [Unit]
+ Description=NibeGW
+ After=multi-user.target
+
+ [Service]
+ Type=idle
+ ExecStart=/home/pi/nibe2mqtt/nibegw -d /dev/serial0
+
+ [Install]
+ WantedBy=multi-user.target
