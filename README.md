@@ -13,11 +13,17 @@
 2. Clone this repository "git clone https://github.com/bebben88/nibe2mqtt"
 
 # Install Node-RED
-```bash <(curl -sL https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/update-nodejs-and-nodered)```
+```
+bash <(curl -sL https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/update-nodejs-and-nodered)
+```
 Make it autostart on boot
-```sudo systemctl enable nodered.service```
+```
+sudo systemctl enable nodered.service
+```
 Start Node-RED
-```sudo systemctl start nodered.service```
+```
+sudo systemctl start nodered.service
+```
 Import the flow from the file nodered.flows
 Now you can Deploy.
 # Start NibeGW script
