@@ -6,10 +6,15 @@
 4. Choose No (Login shell over serial)
 5. Choose Yes (Enable serial hardware)
 6. Choose OK
-6. Choose Finish
+7. Choose Finish
+8. Reboot
 
-Clone the repository with git
-git clone https://github.com/bebben88/nibe2mqtt
+1. Install git "sudo apt-get update && sudo apt-get install git"
+2. Clone this repository "git clone https://github.com/bebben88/nibe2mqtt"
+
+# Install Node-RED
+bash <(curl -sL https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/update-nodejs-and-nodered)
+
 open folder "cd nibe2mqtt"
 Build the nibegw.c script with the command "gcc -std=gnu99 -o nibegw nibegw.c"
 
