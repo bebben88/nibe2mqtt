@@ -52,8 +52,27 @@ run example:
   ./nibegw -v -d /dev/serial0
   
 Verify that the packets are flowing in and Node-RED is sending on Outgoing messages.
+Then turn it off with CTRL + C.
+
 To make nibegw autostart, follow these steps.
 
 1. Move the autostartscript.
 ```
-
+cp /home/pi/nibe2mqtt/nibegw.service /lib/systemd/system/nibegw.service
+```
+2. Make it executable
+```
+sudo chmod 644 /lib/systemd/system/nibegw.service
+```
+3: Reload systemctl daemon
+```
+sudo systemctl daemon-reload
+```
+4. Enable autostart
+```
+sudo systemctl enable nibegw.service
+```
+5. Start NibeGW
+```
+sudo systemctl start nibegw.service
+```
